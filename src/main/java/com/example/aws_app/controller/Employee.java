@@ -12,7 +12,7 @@ public class Employee {
     }
 
     @GetMapping("/post")
-    public String check(){
+    public String check1(){
         return "First Docker Jenkin application!!";
     }
 }
