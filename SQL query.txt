@@ -1,0 +1,86 @@
+1. Write a query to fetch the EmpFname from the EmployeeInfo table in the upper case and use the ALIAS name as EmpName.
+
+selct UPPER(EmpFname) as EmpName from EmployeeInfo ;
+
+2. Write a query to fetch the number of employees working in the department ‘HR’.
+
+select count(EmpFname) from EmployeeInfo where department= 'HR' ;
+
+3. Write a query to get the current date.
+
+Select sysdate()
+
+4. Write a query to retrieve the first four characters of  EmpLname from the EmployeeInfo table.
+
+select substring(EmpLname,0,3) from EmployeeInfo;
+
+5. Write a query to fetch only the place name(string before brackets) from the Address column of EmployeeInfo table.
+
+select substring(Address,0,charIndex('(',Address)) from EmployeeInfo;
+
+6.Write a query to create a new table that consists of data and structure copied from the other table.
+select * into NEW from OLD WHERE 1 = 0;;
+
+7. Write q query to find all the employees whose salary is between 50000 to 100000.
+
+
+select * from employees where salary between 50000 AND 100000;
+
+8. Write a query to find the names of employees that begin with ‘S’
+
+select * from employees where names like 'S%';
+
+9.Write a query to fetch top N records.
+
+select top 10 * from employees ORDER BY Salary DESC;
+
+select * from employees ORDER BY Salary DESC limit 1;
+
+10. Write a query to retrieve the EmpFname and EmpLname in a single column as “FullName”. 
+The first name and the last name must be separated with space.
+
+select Concat(EmpFname,' ',EmpLname) as FullName from employees
+
+Q11. Write a query find number of employees whose DOB is between 02/05/1970 to 31/12/1975 and are grouped according to gender
+
+select count(*) from employees where DOB between 02/05/1970 and 31/12/1975 group by gender;
+
+Q12. Write a query to fetch all the records from the EmployeeInfo table ordered by EmpLname in descending order and Department in the ascending order.
+
+select * from employees ORDER BY EmpLname desc , Department asc
+
+Q13. Write a query to fetch details of employees whose EmpLname ends with an alphabet ‘A’ and contains five alphabets.
+
+select * from employees 
+
+Q14. Write a query to fetch details of all employees excluding the employees with first names, “Sanjay” and “Sonia” from the EmployeeInfo table.
+
+Q15. Write a query to fetch details of employees with the address as “DELHI(DEL)”.
+
+
+Q16. Write a query to fetch all employees who also hold the managerial position.
+
+
+Q17. Write a query to fetch the department-wise count of employees sorted by department’s count in ascending order.
+
+Q18. Write a query to calculate the even and odd records from a table.
+
+
+Q19. Write a SQL query to retrieve employee details from EmployeeInfo table who have a date of joining in the EmployeePosition table.
+
+select * from EmployeeInfo e where (select DOJ from EmployeePosition p where e.id=p.id);
+
+Q20. Write a query to retrieve two minimum and maximum salaries from the EmployeePosition table.
+
+minimum:
+select distinct salary from EmployeePosition E1
+ where  2>= (select count(distinct salary) from EmployeePosition E2 where E1.salary >= E2.salary) ORDER BY E1.Salary DESC
+ 
+maximum:
+
+ select distinct salary from EmployeePosition E1
+ where  2>= (select count(distinct salary) from EmployeePosition E2 where E1.salary <= E2.salary) ORDER BY E1.Salary DESC
+ 
+ 
+ 
+ 
