@@ -10,4 +10,9 @@ public class Employee {
     public String message(){
         return "First AWS application!!";
     }
+
+    @GetMapping("/post")
+    public String message1(){
+        return "First Docker Jenkin application!!";
+    }
 }
